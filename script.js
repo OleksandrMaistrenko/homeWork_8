@@ -15,12 +15,13 @@ if (lengthInput === null) {
 } else {
   const userArray = [];
   for (let i = 0; i < length; i++) {
-    userArray[i] = prompt(`Enter ${i + 1} element of array`);
-    if (userArray[i] === null) {
-      userArray.length--;
-      alert("Goodbye");
-      break;
+    let userInput = +prompt(`Enter ${i + 1} element of array`);
+    while (Number.isNaN(userInput)) {
+      userInput = +prompt(
+        `The value is not a number. Please enter the number.`
+      );
     }
+    userArray.push(userInput);
   }
   let sumArray = 0;
   for (let i = 0; i < userArray.length; i++) {
